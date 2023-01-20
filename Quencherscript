@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class Quencherscript : MonoBehaviour
+{
+    public Boolean isCooling;
+    public Player player;
+    public GameObject blueSphere;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (Player.bluHasBeenTriggered == false && other.gameObject.name == "Player" )
+        {
+            blueSphere.SetActive(true);
+            blueSphere.GetComponent<Rigidbody>().useGravity = true;
+            Debug.Log("Player is Cool now B) ");
+            isCooling = false;
+            player.FireActivator(isCooling);
+            
+            Player.bluHasBeenTriggered = true;
+            Player.redHasBeenTriggered = false;
+
+        }
+        
+        
+    }
+
+
+}
