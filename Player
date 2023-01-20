@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+
+    public GameObject moveFire;
+    public static Boolean redHasBeenTriggered = false;
+    public static Boolean bluHasBeenTriggered = false;
+
+
+
+
+    public void FireActivator(Boolean x)
+    {
+        if (x == true)
+        {
+            moveFire.SetActive(true);
+
+        }
+        
+        else if (x == false)
+        {
+            moveFire.SetActive(false);
+        }
+    }
+    
+    
+    
+}
