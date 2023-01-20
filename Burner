@@ -1,0 +1,38 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Burner : MonoBehaviour
+{
+    public Boolean isBurning;
+    public Player player;
+    public GameObject redSphere;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        /*if (isBurning = false && other.gameObject.name == "Player")
+        {
+            redSphere.SetActive(true);
+            redSphere.GetComponent<Rigidbody>().useGravity = true;
+
+        }*/
+        
+        if (Player.redHasBeenTriggered == false && other.gameObject.name == "Player" )
+        {
+            redSphere.SetActive(true);
+            redSphere.GetComponent<Rigidbody>().useGravity = true;
+            Debug.Log("Player is burning ");
+            isBurning = true;
+            player.FireActivator(isBurning);
+            Player.redHasBeenTriggered = true;
+            Player.bluHasBeenTriggered = false;
+        }
+        
+        
+    }
+
+    private void Start()
+    {
+    }
+}
